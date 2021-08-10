@@ -1,0 +1,13 @@
+<h1>EventsController#show</h1>
+<p>Find me in app/views/events_controller/show.html.erb</p>
+
+<html lang="en">
+    <header class="text-center">
+        <h2><FONT color="#263238">Nom de l'événement : <%= @event.title %></h2>
+    </header>
+    <body>
+        <p>Ce qu'il faut savoir : <%= @event.description %></p>
+        <p>Créé par <%= @event.admin.first_name %></p>
+        <p><a href="/" class="btn btn-primary">Revenir en arrière</a></p>
+    </body>
+</html>

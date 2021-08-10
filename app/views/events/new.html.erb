@@ -1,0 +1,28 @@
+<h1>EventsController#new</h1>
+<p>Find me in app/views/events_controller/new.html.erb</p>
+
+
+<html lang="en">
+    <header class="text-center">
+        <h2><FONT color="#263238">Tu veux créer un nouvel évément ? &#128526</FONT></h2>
+    </header>
+<p></p>
+    <body>
+        <%= form_with model: @event do |f| %>
+            <div class="form-group">
+                <label>Nom de l'événement</label>
+                <%= f.text_field :title, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <label>Description de l'évenement</label>
+                <%= f.text_area :description, class: "form-control" %>
+            </div>
+
+            <div class="form-group" style="padding-top: 1rem;">  
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </div>
+        <% end %>
+    </body>
+</html>
+

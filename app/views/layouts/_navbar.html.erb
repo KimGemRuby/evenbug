@@ -1,0 +1,40 @@
+<%
+=begin%>
+ <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="<%= root_path %>" class="nav-link px-2 link-secondary-strong">	&#127968; Accueil</a></li>
+      <li><a href="<%= events_controller_show_path %>" class="nav-link px-2 link-dark">	&#127870; Événement du jour</a></li>
+      <% if user_signed_in? %>
+      <li><a href="<%= events_controller_new_path %>" class="nav-link px-2 link-dark">&#127942; Créer un évément</a></li>
+      <%end%>
+      <% if user_signed_in? %>
+      <li><a href="<%=user_path(@user.id)%>" class="nav-link px-2 link-dark">&#128124; Ton profil</a></li>
+      <%end%>
+      <li><a href="<%= static_pages_contact_path %>" class="nav-link px-2 link-dark">&#127384; Contact</a></li>
+    </ul>
+
+    <div class="dropdown">
+    <% if user_signed_in? %>
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Welcome bitch</button>
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+        <li><a class="dropdown-item" href="<%=user_path(current_user.id)%>">Ton profil</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="<%=destroy_user_session_path%>" data-method='delete'>Se déconnecter</a></li>
+      </ul>
+    <% else %>
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Come here baby</button>
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+        <li><a class="dropdown-item" href="<%=new_user_registration_path%>">S'inscrire</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="<%=new_user_session_path%>">Se connecter</a></li>
+      </ul>
+      <%end%>
+
+</header>
+ 
+<%
+=end%>
